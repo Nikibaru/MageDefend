@@ -22,33 +22,32 @@ public class Main {
     public static int appWidth = (int) (dimension.width * 0.8) ;
     public static int appHeight = (int) (dimension.height * 0.8) ;
 
+    //////////////////////////////////////////////////////////////////////////////////////
+    // Глобальные переменные игры
+    public static int currentWindow = 1; // 1-Стартовое меню, 2-Создание новой игры, 3-Игра
+
+    //////////////////////////////////////////////////////////////////////////////////////
 
     // Размер ячейки по Х, по Y; Количество ячеек по X, по Y
     public int[] cell_structure = {100,100,10,10};
 
+    // Timer
+    private Timer timer;
+
     public static void main(String[] args) {
         logger.info("Размеры экрана " + dimension.width + "x" + dimension.height);
         logger.info("Размеры приложения " + appWidth + "x" + appHeight);
-        JFrame startWindow = StartWindow.getStartWindow();
+        JFrame startWindow = startWindowClass.getStartWindow();
         JFrame newGameWindow = newGameClass.getNewGameWindow();
 
-        // Стартовое окно
-        startWindow.add(new StartWindow.gameName());
-        JPanel jpanel = new JPanel();
-        startWindow.add(jpanel);
-        JButton newGameButton = new JButton("Новая игра");
-        jpanel.add(newGameButton);
-        newGameButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                logger.info("INFO: Нажата кнопка 'Новая игра'");
-                newGameWindow.setVisible(true);
+        while (true) {
+            //System.out.println("Сообщение - затычка");
+            if (currentWindow == 2) {
                 startWindow.setVisible(false);
+                newGameWindow.setVisible(true);
+                break;
             }
-        });
-
-        // Окно настроек новой игры
-
-
+        }
     }
+
 }
