@@ -37,17 +37,8 @@ public class Main {
     public static void main(String[] args) {
         logger.info("Размеры экрана " + dimension.width + "x" + dimension.height);
         logger.info("Размеры приложения " + appWidth + "x" + appHeight);
-        JFrame startWindow = startWindowClass.getStartWindow();
-        JFrame newGameWindow = newGameClass.getNewGameWindow();
+        StartWindowClass swc = new StartWindowClass();
 
-        while (true) {
-            //System.out.println("Сообщение - затычка");
-            if (currentWindow == 2) {
-                startWindow.setVisible(false);
-                newGameWindow.setVisible(true);
-                break;
-            }
-        }
-    }
+      }
 
 }

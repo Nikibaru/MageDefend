@@ -11,12 +11,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class startWindowClass {
+public class StartWindowClass {
     static Logger logger = Main.logger;
     static int appWidth = Main.appWidth;
     static int appHeight = Main.appHeight;
     static Dimension dimension = Main.dimension;
 
+    private PregameSettings pregameSettings;
+    private JFrame startWindow;
+
+
+    StartWindowClass(){
+        setStartWindow();
+    }
 
     // Лейбл с именем
     static class gameName extends JComponent{
@@ -39,7 +46,7 @@ public class startWindowClass {
     }
 
     // Сам фрейм стартового окна
-    static JFrame getStartWindow(){
+    public void setStartWindow(){
         System.out.println("Инициализирован класс getStartWindow - создание фрейма стартового окна");
         JFrame startWindow = new JFrame();
         // Настройки фрейма
@@ -48,10 +55,15 @@ public class startWindowClass {
 
         // Выставляем размер игрового окна
         startWindow.setBounds(dimension.width/2 - appWidth/2, dimension.height/2 - appHeight/2, appWidth, appHeight);
+        setMenu(startWindow);
+        this.startWindow = startWindow;
+    }
 
+
+    public void setMenu(JFrame startWindow){
         //Добавляем на экран название и кнопки
         startWindow.setLayout(new GridLayout(2, 1, 0, 0)); // выставили сетку по окну
-        startWindow.add(new startWindowClass.gameName()); // добавили название-лейбл сверху
+        startWindow.add(new StartWindowClass.gameName()); // добавили название-лейбл сверху
         JPanel jPanel = new JPanel(); // панель для кнопок
         startWindow.add(jPanel); // панель для кнопок
 
@@ -66,7 +78,9 @@ public class startWindowClass {
             @Override
             public void actionPerformed(ActionEvent e) {
                 logger.info("Нажата кнопка 'Новая игра'");
-                Main.currentWindow = 2;
+                pregameSettings = new PregameSettings();
+                pregameSettings.setPregamePane(startWindow);
+
             }
         });
 
@@ -76,10 +90,10 @@ public class startWindowClass {
                 System.exit(0);
             }
         });
-
-
-        return startWindow;
     }
 
+    public JFrame getStartWindow(){
+        return startWindow;
+    }
 
 }
