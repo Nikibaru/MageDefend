@@ -18,5 +18,16 @@ public class newGameClass {
         // Выставляем размер игрового окна
         newGameWindow.setBounds(dimension.width/2 - appWidth/2, dimension.height/2 - appHeight/2, appWidth, appHeight);
         return newGameWindow;
+
+        /*
+        Необходимо создать JTextField (можно другое) для ввода переменных
+        Должны быть определены следующие переменные:
+        playersGlobalNumber - количество игроков
+        fieldGlobalSize - размер поля (будет fieldGlobalSize*fieldGlobalSize клеток)
+
+        Также создать кнопку для начала игры.
+        В текущей концепции это просто Main.currentWindow = 3
+         */
+
     }
 }

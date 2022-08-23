@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -25,6 +26,8 @@ public class Main {
     //////////////////////////////////////////////////////////////////////////////////////
     // Глобальные переменные игры
     public static int currentWindow = 1; // 1-Стартовое меню, 2-Создание новой игры, 3-Игра
+    public static int playersGlobalNumber = -1;
+    public static int fieldGlobalSize = -1;
 
     //////////////////////////////////////////////////////////////////////////////////////
 
@@ -42,9 +45,19 @@ public class Main {
 
         while (true) {
             //System.out.println("Сообщение - затычка");
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                System.out.println(e);;
+            }
             if (currentWindow == 2) {
                 startWindow.setVisible(false);
                 newGameWindow.setVisible(true);
+                break;
+            }
+            if (currentWindow == 3) {
+                startWindow.setVisible(false);
+                newGameWindow.setVisible(false);
                 break;
             }
         }
