@@ -48,7 +48,7 @@ public class Main {
             try {
                 TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {
-                System.out.println(e);;
+                logger.error(e);;
             }
             if (currentWindow == 2) {
                 startWindow.setVisible(false);

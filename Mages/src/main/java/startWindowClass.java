@@ -40,7 +40,7 @@ public class startWindowClass {
 
     // Сам фрейм стартового окна
     static JFrame getStartWindow(){
-        System.out.println("Инициализирован класс getStartWindow - создание фрейма стартового окна");
+        logger.info("Инициализирован класс getStartWindow - создание фрейма стартового окна");
         JFrame startWindow = new JFrame();
         // Настройки фрейма
         startWindow.setVisible(true);
