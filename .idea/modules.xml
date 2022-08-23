@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/MageDefend.iml" filepath="$PROJECT_DIR$/.idea/MageDefend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mages/Mages.iml" filepath="$PROJECT_DIR$/Mages/Mages.iml" />
+    </modules>
+  </component>
+</project>
